@@ -1,0 +1,27 @@
+<div class="flex counter-container text-center full-center">
+    <h1 class="mx-auto py-40 mt-200">Counter
+            <span>
+                <img class="plus-minus" src="/assets/plus-minus.svg" alt="">
+            </span>
+    </h1>
+
+
+    <div class="displayNum">
+        <div class="h-100">
+            <h1 class="count">{{ count }}</h1>
+        </div>
+    </div>
+
+    <div class="row gap-2 items-center mx-auto full-center">
+        <button type="button" (click)="decrement()" [disabled]="disableDecrement">Decrement
+            <span>
+                -
+            </span>
+        </button>
+        <button type="button" (click)="increment()">Increment 
+            <span>
+                +
+            </span>
+        </button>
+    </div>
+</div>
