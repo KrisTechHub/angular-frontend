@@ -1,3 +1,93 @@
 .userlist-container {
     height: 80vh;
 }
+
+
+table {
+    font-size: 16px;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+
+.mat-elevation-z8 {
+        align-items: center;
+        justify-content: center;
+
+}
+
+h1 {
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1
+}
+
+.gender {
+    background-color: black;
+}
+
+mat-label {
+    color: #000;
+}
+
+mat-form-field {
+    margin-bottom: -35px;
+    margin-top: -7px;
+}
+
+
+th {
+    font-size: 18px;
+    background-color: #1f1f1f !important;
+    color: white;
+    padding: 8px;
+    margin: 5px;
+    text-align: center !important;
+}
+
+tr {
+    transition: .1s ease;
+    border-radius: 3px;
+}
+
+
+tr:hover {
+    background-color: #e4e4e4;
+}
+
+td {
+    border: 1px solid transparent;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 5px;
+    text-align: center !important;
+}
+
+td:hover {
+    border-color: #1f1f1f;
+    box-shadow: inset 0 0 1px #000;
+}
+
+td a {
+    font-size: 14px;
+    font-weight: 100;
+    color: rgb(76, 76, 76);
+}
+
+.wraps {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown {
+    border: 1px solid white;
+    border-radius: 3px;
+    height: 25px;
+    background-color: #1f1f1f;
+    color: #e4e4e4;
+    padding: 3px;
+}

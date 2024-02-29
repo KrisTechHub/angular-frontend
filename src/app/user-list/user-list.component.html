@@ -1,7 +1,106 @@
-<div class="flex userlist-container text-center full-center">
-    <h1 class="mx-auto py-40 mt-200">Users List</h1>
-    <div class="row gap-2 items-center mx-auto full-center">
-        <p>Users:</p>
+
+    <div class="flex column userlist-container text-center overflow">
+        <h1 class="pt-50 mb-15">Users List</h1>
+
+        <div class="flex column mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+                <!-- Header Template -->
+                <ng-container matColumnDef="id" >
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+                </ng-container>
+                
+                <ng-container matColumnDef="name" >
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let user">{{ user.firstName }} {{ user.maidenName }} {{ user.lastName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="age">
+                    <th mat-header-cell *matHeaderCellDef> Age </th>
+                    <td mat-cell *matCellDef="let user">{{ user.age }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="birthDate">
+                    <th mat-header-cell *matHeaderCellDef> BirthDate </th>
+                    <td mat-cell *matCellDef="let user">{{ user.birthDate }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="gender">
+                    <th class="gender" mat-header-cell *matHeaderCellDef>  
+                        <mat-form-field class="gender-select">
+                            <mat-label>Gender</mat-label>
+                            <mat-select (selectionChange)="onChange($event)">
+                                <mat-option value="all">Show All</mat-option>
+                                <mat-option value="male">Male</mat-option>
+                                <mat-option value="female">Female</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </th>
+                    <td mat-cell *matCellDef="let user">{{ user.gender.charAt(0).toUpperCase() + user.gender.slice(1) }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="image">
+                    <th mat-header-cell *matHeaderCellDef> Image </th>
+                    <td mat-cell *matCellDef="let user">
+                        <span class="one">
+                            {{ user.image }}
+                        </span>
+                        <span class="two">
+                            <a [href]="user.image" target="_blank">Preview</a>
+                        </span>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+
+            <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 15, 20]" showFirstLastButtons aria-label="Select page of users">
+            </mat-paginator>
+        </div>
+
+
+
+        <!-- <table class="pt-50 ">
+            <tr>
+                <th class="w-5">ID</th>
+                <th class="w-20">Name</th>
+                <th class="w-20">Email</th>
+                <th class="w-5">Age</th>
+                <th class="w-10">Birthdate</th>
+                <th class="w-12">
+                    <label class="pr-15" for="gender">Gender</label>
+                    <select class="dropdown" name="gender" id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </th>
+                <th class="w-28">Image</th>
+            </tr>
         
+        
+            <tr *ngFor="let user of users.users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.firstName }} {{user.maidenName}} {{ user.lastName }} </td>
+                <td>{{ user.email }}</td>
+                <td class="age">{{ user.age }}</td>
+                <td>{{ user.birthDate }}</td>
+                <td>{{ user.gender }}</td>
+                <td class="wraps flex column">
+                    <span class="one">
+                        {{ user.image }}
+                    </span> 
+                    <span class="two">
+                        <a [href]="user.image" target="_blank">Preview</a>
+                    </span>
+
+                </td>
+            </tr>
+        </table> -->
     </div>
-</div>
